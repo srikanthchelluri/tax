@@ -77,8 +77,8 @@ def calculate_tax(salary, tax_brackets):
         prev_up_to = up_to
     return tax
 
-salary = 0
-bonus = 0
+salary = 1
+bonus = 1
 
 print('salary', salary)
 print('bonus', bonus)
