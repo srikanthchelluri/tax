@@ -18,7 +18,7 @@ def load_constants():
     with open('./constants.yaml', 'r') as f:
         return yaml.safe_load(f)
 
-def print_output(year, wages, tax_loss_harvesting, ny_percentage, va_percentage):
+def print_constants(year, wages, tax_loss_harvesting, ny_percentage, va_percentage):
     print('CONSTANTS')
     print('Year:', "%.0f" % args.year)
     print('Wages:', "%.0f" % args.wages)
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     nyc_tax = calculate_tax((args.wages - args.tax_loss_harvesting - nyc_local_standard_deduction) * args.ny_percentage, nyc_local_tax_brackets)
 
     # Print outputs
-    print_output(
+    print_constants(
         args.year,
         args.wages,
         args.tax_loss_harvesting,
