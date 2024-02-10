@@ -20,14 +20,14 @@ def load_constants():
 
 def print_constants(year, wages, tax_loss_harvesting, ny_percentage, va_percentage):
     print('CONSTANTS')
-    print('Year:', "%.0f" % args.year)
-    print('Wages:', "%.0f" % args.wages)
-    print('Tax loss harvesting:', "%.0f" % args.tax_loss_harvesting)
-    print('NY percentage:', "%.3f" % args.ny_percentage)
-    print('VA percentage:', "%.3f" % args.va_percentage)
+    print('Year:', "%.0f" % year)
+    print('Wages:', "%.0f" % wages)
+    print('Tax loss harvesting:', "%.0f" % tax_loss_harvesting)
+    print('NY percentage:', "%.3f" % ny_percentage)
+    print('VA percentage:', "%.3f" % va_percentage)
     print()
 
-def print_taxes(federal_tax, social_security_tax, medicare_tax, ny_tax, va_tax, nyc_tax):
+def print_taxes(wages, federal_tax, social_security_tax, medicare_tax, ny_tax, va_tax, nyc_tax):
     print('TAXES')
     print('Federal:', "%.0f" % federal_tax)
     print('Social security:', "%.0f" % social_security_tax)
@@ -39,10 +39,10 @@ def print_taxes(federal_tax, social_security_tax, medicare_tax, ny_tax, va_tax, 
     print('SUMMARY')
     taxes = federal_tax + social_security_tax + medicare_tax + ny_tax + va_tax + nyc_tax
     print('Total taxes:', "%.0f" % taxes)
-    print('Tax percentage', "%.3f" % (taxes / args.wages))
-    net = args.wages - taxes
+    print('Tax percentage', "%.3f" % (taxes / wages))
+    net = wages - taxes
     print('Net:', "%.0f" % net)
-    print('Net percentage', "%.3f" % (net / args.wages))
+    print('Net percentage', "%.3f" % (net / wages))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -94,6 +94,7 @@ if __name__ == '__main__':
         args.ny_percentage,
         args.va_percentage)
     print_taxes(
+        args.wages,
         federal_tax,
         social_security_tax,
         medicare_tax,
