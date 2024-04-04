@@ -39,6 +39,10 @@ def print_taxes(wages, federal_tax, social_security_tax, medicare_tax, ny_tax, v
     print('SUMMARY')
     taxes = federal_tax + social_security_tax + medicare_tax + ny_tax + va_tax + nyc_tax
     print('Total taxes:', "%.0f" % taxes)
+    print('Federal tax percentage:', "%.3f" % (federal_tax / wages))
+    print('NY state tax percentage:', "%.3f" % (ny_tax / wages))
+    print('VA state tax percentage:', "%.3f" % (va_tax / wages))
+    print('NYC local tax percentage:', "%.3f" % (nyc_tax / wages))
     print('Tax percentage', "%.3f" % (taxes / wages))
     net = wages - taxes
     print('Net:', "%.0f" % net)
